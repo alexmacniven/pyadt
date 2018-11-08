@@ -1,0 +1,43 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "4f67fe7498d40559baaf30a561dce1ee8ef26a3eb8e7137bd84e10266c6f8466"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "pyodbc": {
+            "hashes": [
+                "sha256:059419e5634027840c548c6c1827399daf7dea1119ffbd3755725717ab2311fc",
+                "sha256:1030c958b7c398b19c664438b008853f32017ae02d614b5c2b1987552e92f844",
+                "sha256:1266f31b37c313c1f392d1adbba8b91c07b52a65f6f962fca73c1dd40583600d",
+                "sha256:1e7e2e65fc73ddd504b1a4642a7419c399dc2af67f12fa2bf2e85176e7d72795",
+                "sha256:29b064d10172e37478bef4a9ff281f11f8d11569b20df6e6d6fa026e7aec9e1c",
+                "sha256:4326abb737dec36156998d52324921673d30f575e1e0998f0c5edd7de20e61d4",
+                "sha256:524b84ff25215d5d38630d153643bcc7d11d04a0c9cb7aac74b853fa98a28c26",
+                "sha256:686e7e01cc7833db82d9f0d8422730d62f95bc668eb6b90c3a222b394534aa80",
+                "sha256:6aa15c31d8db498ace173b8a7f032f46eb32ad5ed99ebe34a8a26f39bced0409",
+                "sha256:7135818ce3097e8390e17ae7d4766ce099fa686f3ae52833c2fa52ae5d962b99",
+                "sha256:79b45956f7f4d9956d5acb093d0c7e21a7689d8e9e4f119a1dcf2292bba96a5c",
+                "sha256:ab68d3c2a7ab625a85589ba788b3cdd514870c23af953b36c41d81476348de8e",
+                "sha256:bcce70bb5b5b704fe7101a264c69533f52f3454915f3d448643e1c3292bf49c9",
+                "sha256:c2a4c0707704d8eb9d91f915c36f2cf496a0c2bde48d57c67b2042d41fc90b70",
+                "sha256:d22e8e5dddd3d25168e5c0e3362c05091c6433283e310db9f18412b4335d7acb",
+                "sha256:f8d7b2866b55a8cbaf7ecc97326d1d2ccab1b5cd10e1e5fc360a59bfd1ec307a"
+            ],
+            "index": "pypi",
+            "version": "==4.0.24"
+        }
+    },
+    "develop": {}
+}

@@ -5,14 +5,15 @@ import os
 import sys
 
 from setuptools import find_packages, setup, Command
+from shutil import rmtree
 
 
 # Package meta-data
-NAME = 'pyadt'
-DESCRIPTION = 'A module to communicate with ADT tables from Python.'
+NAME = "pyadt"
+DESCRIPTION = "A wrapper for working with ADT tables in Python 3.7"
 URL = 'https://bitbucket.org/sunshinetechnology/pyadt'
-EMAIL = 'apmacniven@outlook.com'
-AUTHOR = 'Alex Macniven'
+EMAIL = "apmacniven@outlook.com"
+AUTHOR = "Alex Macniven"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -34,10 +35,10 @@ with open(os.path.join(here, NAME, '__version__.py')) as f:
 
 # The Initialize class allows a user to setup the host machine with the
 # necessary files and configurations.
-class Initialize(Command):
+class RunTests(Command):
     """Sets up the host machine with any configurations."""
 
-    description = ''
+    description = "Run all tests."
     user_options = []
 
     def initialize_options(self):
@@ -47,8 +48,42 @@ class Initialize(Command):
         pass
 
     def run(self):
-        # Put any and everything needed to setup the host here.
+        from subprocess import call
+        errno = call(["python", "-m", "unittest", "discover"])
+        raise SystemExit(errno)
+
+class UploadCommand(Command):
+
+    """Support setup.py publish."""
+    description = "Build and publish the package."
+    user_options = []
+
+    @staticmethod
+    def status(s):
+        """Prints things in bold."""
+        print("\033[1m{0}\033[0m".format(s))
+
+    def initialize_options(self):
         pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        try:
+            self.status("Removing previous builds…")
+            rmtree(os.path.join(here, "dist"))
+        except FileNotFoundError:
+            pass
+
+        self.status("Building Source distribution…")
+        os.system("{0} setup.py sdist bdist_wheel".format(sys.executable))
+        self.status("Uploading the package to PyPI via Twine…")
+        os.system("twine upload dist/*")
+        self.status("Pushing git tags…")
+        os.system("git tag v{0}".format(about["__version__"]))
+        os.system("git push --tags")
+        sys.exit()
 
 # Where the magic happens:
 setup(
@@ -79,6 +114,7 @@ setup(
         "Programming Language :: Python :: 3.6",
     ],
     cmdclass={
-        'init': Initialize,
+        'test': RunTests,
+        'upload': UploadCommand
     }
 )
