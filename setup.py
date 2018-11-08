@@ -11,7 +11,7 @@ from shutil import rmtree
 # Package meta-data
 NAME = "pyadt"
 DESCRIPTION = "A wrapper for working with ADT tables in Python 3.7"
-URL = 'https://bitbucket.org/sunshinetechnology/pyadt'
+URL = 'https://github.com/alexmacniven/pyadt'
 EMAIL = "apmacniven@outlook.com"
 AUTHOR = "Alex Macniven"
 
